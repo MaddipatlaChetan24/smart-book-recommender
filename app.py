@@ -42,8 +42,7 @@ def recommend_from_titles(titles, top_n=10):
     all_sim_scores = np.zeros(len(reduced_df))
     matched_any = False
 
-    for title in titles:
-        matches = reduced_df.index[reduced_df['title'] == title]
+
         if len(matches) == 0:
             continue
         matched_any = True
