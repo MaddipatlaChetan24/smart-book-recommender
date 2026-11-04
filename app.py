@@ -31,7 +31,6 @@ def _top_genres(n=20):
             part = part.strip()
             if part:
                 counter[part] += 1
-    return [genre for genre, _ in counter.most_common(n)]
 
 
 TOP_GENRES = _top_genres()
