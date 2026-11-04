@@ -36,8 +36,6 @@ def _top_genres(n=20):
 TOP_GENRES = _top_genres()
 
 
-def recommend_from_titles(titles, top_n=10):
-    """Content-based recommendations aggregated across one or more seed
     titles. Returns [] if none of the titles are found in the catalog."""
     all_sim_scores = np.zeros(len(reduced_df))
     matched_any = False
