@@ -29,13 +29,22 @@ def _top_genres(n=20):
     for genre_str in reduced_df['genre'].dropna():
         for part in genre_str.split(','):
             part = part.strip()
+            if part:
+                counter[part] += 1
+    return [genre for genre, _ in counter.most_common(n)]
+
+
 TOP_GENRES = _top_genres()
 
 
+def recommend_from_titles(titles, top_n=10):
+    """Content-based recommendations aggregated across one or more seed
     titles. Returns [] if none of the titles are found in the catalog."""
     all_sim_scores = np.zeros(len(reduced_df))
     matched_any = False
 
+    for title in titles:
+        matches = reduced_df.index[reduced_df['title'] == title]
         if len(matches) == 0:
             continue
         matched_any = True
