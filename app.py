@@ -29,10 +29,6 @@ def _top_genres(n=20):
     for genre_str in reduced_df['genre'].dropna():
         for part in genre_str.split(','):
             part = part.strip()
-            if part:
-                counter[part] += 1
-
-
 TOP_GENRES = _top_genres()
 
 
